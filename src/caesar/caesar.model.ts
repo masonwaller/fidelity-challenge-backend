@@ -3,6 +3,7 @@ export class Caesar {
     public id: string,
     public original: string,
     public cipher: string,
+    public number: number,
   ) {}
   setCipher = () => {
     const abc = [
@@ -42,9 +43,11 @@ export class Caesar {
         this.original[i] === '.' ||
         this.original[i] === ','
       ) {
+        result += this.original[i];
         continue;
       }
-      let newIdx = abc.findIndex((letter) => letter === this.original[i]) - 4;
+      let newIdx =
+        abc.findIndex((letter) => letter === this.original[i]) - this.number;
       if (newIdx < 0) {
         newIdx += 26;
       } else if (newIdx >= 26) {

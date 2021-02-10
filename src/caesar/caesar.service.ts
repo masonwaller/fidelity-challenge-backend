@@ -7,7 +7,8 @@ export class CaesarService {
   caesars: Caesar[] = [];
 
   insertCaesar(original: string) {
-    const newCaesar = new Caesar(new Date().toString(), original, '');
+    let num = Math.floor(Math.random() * 25);
+    const newCaesar = new Caesar(new Date().toString(), original, '', num);
     newCaesar.setCipher();
     this.caesars.push(newCaesar);
     return newCaesar;
