@@ -50,10 +50,12 @@ export class Caesar {
       }
       let newIdx =
         abc.findIndex((letter) => letter === this.original[i]) - this.number;
-      if (newIdx < 0) {
-        newIdx += 26;
-      } else if (newIdx >= 26) {
-        newIdx -= 26;
+      while (newIdx >= 26 || newIdx < 0) {
+        if (newIdx >= 26) {
+          newIdx -= 26;
+        } else if (newIdx < 0) {
+          newIdx += 26;
+        }
       }
       result += abc[newIdx];
     }
