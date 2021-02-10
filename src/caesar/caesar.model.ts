@@ -49,7 +49,8 @@ export class Caesar {
         continue;
       }
       let newIdx =
-        abc.findIndex((letter) => letter === this.original[i]) - this.number;
+        abc.findIndex((letter) => letter == this.original[i].toLowerCase()) -
+        this.number;
       while (newIdx >= 26 || newIdx < 0) {
         if (newIdx >= 26) {
           newIdx -= 26;
@@ -57,7 +58,11 @@ export class Caesar {
           newIdx += 26;
         }
       }
-      result += abc[newIdx];
+      if (this.original[i] == this.original[i].toUpperCase()) {
+        result += abc[newIdx].toUpperCase();
+      } else {
+        result += abc[newIdx];
+      }
     }
     this.cipher = result;
     return this.cipher;
