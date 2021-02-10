@@ -41,7 +41,9 @@ export class Caesar {
         this.original[i] === '?' ||
         this.original[i] === '!' ||
         this.original[i] === '.' ||
-        this.original[i] === ','
+        this.original[i] === ',' ||
+        this.original[i] === ';' ||
+        this.original[i] === ':'
       ) {
         result += this.original[i];
         continue;
