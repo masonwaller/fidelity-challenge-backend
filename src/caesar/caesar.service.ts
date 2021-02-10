@@ -6,11 +6,13 @@ import { Caesar } from './caesar.model';
 export class CaesarService {
   caesars: Caesar[] = [];
 
-  insertCaesar(original: string) {
-    let num = Math.floor(Math.random() * 25);
-    const newCaesar = new Caesar(new Date().toString(), original, '', num);
+  insertCaesar(original: string, number: number) {
+    const newCaesar = new Caesar(new Date().toString(), original, '', number);
     newCaesar.setCipher();
     this.caesars.push(newCaesar);
     return newCaesar;
+  }
+  getAllCiphers() {
+    return this.caesars;
   }
 }
